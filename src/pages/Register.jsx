@@ -12,6 +12,13 @@ const Register = () => {
 
   const handleRegister = (e) => {
     e.preventDefault();
+
+    //clear state
+    setFormFields({
+      name: "",
+      email: "",
+      password: "",
+    });
   };
 
   return (
