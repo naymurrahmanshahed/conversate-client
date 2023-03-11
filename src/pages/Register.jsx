@@ -2,6 +2,7 @@ import { useState } from "react";
 import Button from "../components/Button";
 import FormControl from "../components/FormControl";
 import SectionTitle from "../components/SectionTitle";
+import { useRegister } from "../hook/useRegister";
 
 const Register = () => {
   const [formFields, setFormFields] = useState({
@@ -10,9 +11,13 @@ const Register = () => {
     password: "",
   });
 
-  const handleRegister = (e) => {
+  const { register, loading, error } = useRegister();
+
+  const handleRegister = async (e) => {
     e.preventDefault();
 
+    // useRegiserhook call
+    await register(formFields.name, formFields.email, formFields.password);
     //clear state
     setFormFields({
       name: "",
@@ -49,7 +54,8 @@ const Register = () => {
           formFields={formFields}
           setFormFields={setFormFields}
         />
-        <Button text={"Register"} submit />
+        <Button text={loading ? "Registering...." : "Register"} submit />
+        {error && <p className="text-rose-500">*{error}</p>}
       </form>
     </div>
   );
