@@ -33,7 +33,7 @@ export const useRegister = () => {
       setLoading(false);
 
       //authcontext updated
-      dispatch({ type: "LOGIN", action: json });
+      dispatch({ type: "LOGIN", payload: json });
 
       //save user localstorage
       localStorage.setItem("user", JSON.stringify(json));
