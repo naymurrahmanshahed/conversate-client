@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import Button from "../components/Button";
 import FormControl from "../components/FormControl";
 import SectionTitle from "../components/SectionTitle";
@@ -26,7 +26,6 @@ const Login = () => {
       password: "",
     });
   };
-
   return (
     <div className="register flex flex-col justify-center items-center xl:mt-[4rem] ">
       <form onSubmit={handleLogin} className="flex flex-col gap-5">
@@ -55,4 +54,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default React.memo(Login);

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import Button from "../components/Button";
 import FormControl from "../components/FormControl";
 import SectionTitle from "../components/SectionTitle";
@@ -25,7 +25,6 @@ const Register = () => {
       password: "",
     });
   };
-
   return (
     <div className="register flex flex-col justify-center items-center 2xl:mt-20 ">
       <form onSubmit={handleRegister} className="flex flex-col gap-5">
@@ -61,4 +60,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default React.memo(Register);

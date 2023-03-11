@@ -1,8 +1,13 @@
-const Button = ({ text, submit }) => {
+const Button = ({ text, submit, logout, handleLogout }) => {
   return (
     <button
+      onClick={handleLogout ? handleLogout : null}
       type={submit ? "submit" : ""}
-      className="bg-violet-500 rounded py-3 mt-5 text-white hover:bg-violet-600"
+      className={`rounded px-5 py-3 ${
+        logout
+          ? "bg-rose-500 hover:bg-rose-600"
+          : " bg-violet-500 mt-5 hover:bg-violet-600"
+      } text-white `}
     >
       {text}
     </button>
