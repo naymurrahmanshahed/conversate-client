@@ -2,6 +2,7 @@ import { useState } from "react";
 import Button from "../components/Button";
 import FormControl from "../components/FormControl";
 import SectionTitle from "../components/SectionTitle";
+import { useLogin } from "../hook/useLogin";
 
 const Login = () => {
   const [formFields, setFormFields] = useState({
@@ -9,8 +10,14 @@ const Login = () => {
     password: "",
   });
 
-  const handleLogin = (e) => {
+  const { login, loading, error } = useLogin();
+
+  const handleLogin = async (e) => {
     e.preventDefault();
+
+    //uselogin hook call
+
+    await login(formFields.email, formFields.password);
 
     //clear state
     setFormFields({
@@ -41,7 +48,8 @@ const Login = () => {
           formFields={formFields}
           setFormFields={setFormFields}
         />
-        <Button text={"Login"} submit />
+        <Button text={loading ? "Logging...." : "Login"} submit />
+        {error && <p className="text-rose-500">*{error}</p>}
       </form>
     </div>
   );
