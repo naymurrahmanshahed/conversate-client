@@ -28,7 +28,7 @@ const Login = () => {
   };
   return (
     <div className="register flex flex-col justify-center items-center xl:mt-[4rem] ">
-      <form onSubmit={handleLogin} className="flex flex-col gap-5">
+      <form onSubmit={handleLogin} className="flex flex-col gap-5 w-[25rem]">
         <SectionTitle title={"Login"} />
 
         <FormControl

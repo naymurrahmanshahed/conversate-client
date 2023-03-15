@@ -9,7 +9,7 @@ const FormControl = ({
   setFormFields,
 }) => {
   return (
-    <div className="form-control flex flex-col gap-2">
+    <div className="form-control flex flex-col gap-2 w-full">
       <label htmlFor={label} className="cursor-pointer">
         {labelInnerText}
       </label>
@@ -21,7 +21,7 @@ const FormControl = ({
         onChange={(e) =>
           setFormFields({ ...formFields, [label]: e.target.value })
         }
-        className="border py-3 px-5 w-[25rem] rounded outline-none focus:border-violet-500 "
+        className="border py-3 px-5  rounded outline-none focus:border-violet-500 "
       />
     </div>
   );
