@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import Button from "../components/Button";
+import EyeButton from "../components/EyeButton";
 import FormControl from "../components/FormControl";
 import SectionTitle from "../components/SectionTitle";
 import { useRegister } from "../hook/useRegister";
 
-const Register = () => {
+const Register = ({ handleToggle, type }) => {
   const [formFields, setFormFields] = useState({
     name: "",
     email: "",
@@ -45,14 +46,18 @@ const Register = () => {
           formFields={formFields}
           setFormFields={setFormFields}
         />
-        <FormControl
-          label={"password"}
-          labelInnerText={"Password"}
-          inputType={"password"}
-          placeholder={"Enter Your Password"}
-          formFields={formFields}
-          setFormFields={setFormFields}
-        />
+        <div className="relative">
+          <FormControl
+            label={"password"}
+            labelInnerText={"Password"}
+            inputType={type ? "text" : "password"}
+            placeholder={"Enter Your Password"}
+            formFields={formFields}
+            setFormFields={setFormFields}
+          />
+          <EyeButton handleToggle={handleToggle} type={type} />
+        </div>
+
         <Button text={loading ? "Registering...." : "Register"} submit />
         {error && <p className="text-rose-500">*{error}</p>}
       </form>
